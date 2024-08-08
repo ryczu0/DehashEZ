@@ -10,7 +10,7 @@ Support: https://discord.gg/HUgmXaPXSU
 # Hash 🔒
 
 This program accepts SHA256 and SHA512 hashes, with an optional salt.
-So, this includes, AuthMe hashes, DynamicBungeeAuth hashes, etc
+So, this includes, AuthMe hashes, DynamicBungeeAuth hashes, etc.
 
 When the program finds the original hash value, it will display it on the screen and automatically copy it to your clipboard.
 
