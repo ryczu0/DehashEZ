@@ -6,6 +6,21 @@ Password dehasher using Python.
 
 Support: https://discord.gg/HUgmXaPXSU
 
+# UPDATE
+Improvements: 
+
+**Optimization in the bruteforce function**
+- Dehashing time has been reduced by approximately 20-30 seconds.
+- The simplest passwords can be cracked in less than 1 second.
+  
+**Optimized wordlist upload**
+- Wordlist processing time was reduced by 2-3 seconds.
+
+**Optimized interface**
+- Simplified error handling and menu options.
+- Total dehashing time is calculated more accurately and presented in a more readable manner.
+- The hash result is automatically copied to the clipboard.
+
 
 # Hash 🔒
 
