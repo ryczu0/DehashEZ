@@ -1,3 +1,5 @@
+![image](https://github.com/user-attachments/assets/445aa3b4-decc-4003-a023-4db7dfd36fe8)
+
 # DehashEZ
 
 Password dehasher using Python.
@@ -5,10 +7,12 @@ Password dehasher using Python.
 Support: https://discord.gg/HUgmXaPXSU
 
 
+
 # Wordlist
 You must put your wordlist file in the same directory as main.py
 
-Example: https://i.postimg.cc/DzcV00XT/image.png
+![image](https://github.com/user-attachments/assets/93f1779c-ca10-43cc-9f94-f95e2b1df013)
+
 
 If you verified that the wordlist file is in place but the program is unable to detect it, remember that you must write the full name of the file, including the format (For example .txt)
 "wordlist" = NO
@@ -27,7 +31,9 @@ This program accepts SHA256 and SHA512 hashes, with an optional salt.
 So, this includes, AuthMe hashes, DynamicBungeeAuth hashes, simple hashes. etc
 
 When the program finds the original hash value, it will display it on the screen and automatically copy it to your clipboard.
-Successful dehash example: https://i.postimg.cc/bwJtYCFY/image.png
+
+![image](https://github.com/user-attachments/assets/6ca3734a-a46b-408f-870f-be70c86d665b)
+
 
 
 # Salt
