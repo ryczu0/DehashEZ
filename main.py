@@ -11,13 +11,25 @@ passwords = []
 #======================================================================================================
 
 logo = """
-██████╗░███████╗██╗░░██╗░█████╗░░██████╗██╗░░██╗███████╗███████╗
-██╔══██╗██╔════╝██║░░██║██╔══██╗██╔════╝██║░░██║██╔════╝╚════██║
-██║░░██║█████╗░░███████║███████║╚█████╗░███████║█████╗░░░░███╔═╝
-██║░░██║██╔══╝░░██╔══██║██╔══██║░╚═══██╗██╔══██║██╔══╝░░██╔══╝░░
-██████╔╝███████╗██║░░██║██║░░██║██████╔╝██║░░██║███████╗███████╗
-╚═════╝░╚══════╝╚═╝░░╚═╝╚═╝░░╚═╝╚═════╝░╚═╝░░╚═╝╚══════╝╚══════╝
+██████╗░███████╗██╗░░██╗░█████╗░░██████╗██╗░░██╗
+██╔══██╗██╔════╝██║░░██║██╔══██╗██╔════╝██║░░██║
+██║░░██║█████╗░░███████║███████║╚█████╗░███████║
+██║░░██║██╔══╝░░██╔══██║██╔══██║░╚═══██╗██╔══██║
+██████╔╝███████╗██║░░██║██║░░██║██████╔╝██║░░██║
+╚═════╝░╚══════╝╚═╝░░╚═╝╚═╝░░╚═╝╚═════╝░╚═╝░░╚═╝
 """
+
+
+logo2 = """
+║███████╗███████╗
+║██╔════╝╚════██║
+║█████╗░░░░███╔═╝
+║██╔══╝░░██╔══╝░░
+║███████╗███████╗
+╚══════╝╚══════╝
+"""
+
+
 error = """
 ░█▀▀▀ ░█▀▀█ ░█▀▀█ ░█▀▀▀█ ░█▀▀█ 
 ░█▀▀▀ ░█▄▄▀ ░█▄▄▀ ░█──░█ ░█▄▄▀ 
@@ -62,7 +74,8 @@ def main():
         os.system("cls || clear")
         printcenter(f"{Fore.LIGHTBLUE_EX}{logo}")
         print()
-        printcenter(f"{Fore.RED}ERROR: {Fore.RESET}File not found / invalid format.\n\nRead README.MD for help")
+        printcenter(f"{Fore.RED}ERROR: {Fore.RESET}File not found / invalid format.")
+        printcenter(f"Read README.MD for help.")
         time.sleep(5)
         print()
         main()
@@ -70,11 +83,13 @@ def main():
         os.system("cls || clear")
         printcenter(f"{Fore.LIGHTBLUE_EX}{logo}")
         print()
-        printcenter(f"{Fore.RESET}Valid file.\n\n{Fore.BLUE}   Processing wordlist...")
+        printcenter(f"{Fore.RESET}Valid file.")
+        print()
+        printcenter(f"{Fore.BLUE}Processing wordlist...")
         print()
         with open(wordlist, 'r', encoding="latin-1") as f:
             passwords.extend([password.strip() for password in f])
-            print(f"{Fore.LIGHTBLUE_EX}                             [LOG]{Fore.RESET} {Fore.LIGHTMAGENTA_EX}{len(passwords)}{Fore.RESET} passwords have been uploaded from {Fore.LIGHTMAGENTA_EX}", wordlist, "", end="\r")
+            printcenter(f"{Fore.LIGHTBLUE_EX}                    [LOG]{Fore.RESET} {Fore.LIGHTMAGENTA_EX}{len(passwords)}{Fore.RESET} passwords have been uploaded from {Fore.LIGHTMAGENTA_EX}{wordlist}")
             print()
             print()
             while True:
@@ -95,7 +110,7 @@ def main():
                     print()
                     printcenter(f"{Fore.LIGHTBLUE_EX}[LOG]{Fore.RESET} It was not possible to decrypt the hash.")
                     print()
-                    print(f"{Fore.LIGHTBLACK_EX}                                        Response time:", totalTime, "seconds.")
+                    printcenter(f"{Fore.LIGHTBLACK_EX}Response time: {totalTime} seconds.")
                     print()
                     print(f"{Fore.LIGHTBLUE_EX}(1) {Fore.RESET}Go back")
                     print(f"{Fore.LIGHTBLUE_EX}(2) {Fore.RESET}Leave")
@@ -123,7 +138,7 @@ def main():
                     print()
                     printcenter(f"{Fore.LIGHTBLACK_EX}Result copied to clipboard.")
                     print()
-                    print(f"{Fore.LIGHTBLACK_EX}                                              Dehash in", totalTime, "seconds")
+                    printcenter(f"{Fore.LIGHTBLACK_EX}Dehash in {totalTime} seconds.")
                     print()
                     print()
                     print(f"{Fore.LIGHTBLUE_EX}(1) {Fore.RESET}Go back")
