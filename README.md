@@ -7,6 +7,16 @@ Password dehasher using Python.
 Support: https://discord.gg/HUgmXaPXSU
 
 
+# Hash
+
+This program accepts SHA256 and SHA512 hashes, with an optional salt.
+So, this includes, AuthMe hashes, DynamicBungeeAuth hashes, simple hashes. etc
+
+When the program finds the original hash value, it will display it on the screen and automatically copy it to your clipboard.
+
+![image](https://github.com/user-attachments/assets/6ca3734a-a46b-408f-870f-be70c86d665b)
+
+
 
 # Wordlist
 You must put your wordlist file in the same directory as main.py
@@ -23,17 +33,6 @@ If the program still unable to detect the wordlist, verify that you are running 
 You can check this in the title of the program window.
 
 If you don't have a wordlist or you can't find any password with yours, join the Discord so we can give you a pretty good one.
-
-
-# Hash
-
-This program accepts SHA256 and SHA512 hashes, with an optional salt.
-So, this includes, AuthMe hashes, DynamicBungeeAuth hashes, simple hashes. etc
-
-When the program finds the original hash value, it will display it on the screen and automatically copy it to your clipboard.
-
-![image](https://github.com/user-attachments/assets/6ca3734a-a46b-408f-870f-be70c86d665b)
-
 
 
 # Salt
