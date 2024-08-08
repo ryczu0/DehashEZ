@@ -2,7 +2,7 @@
 
 # DehashEZ
 
-Password dehasher using Python.
+Password dehasher using Python. (Part of zDehasher code but extremely optimized)
 
 Support: https://discord.gg/HUgmXaPXSU
 
