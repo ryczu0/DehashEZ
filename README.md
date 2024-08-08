@@ -27,6 +27,7 @@ You must put your wordlist file in the same directory as main.py
 If you verified that the wordlist file is in place but the program is unable to detect it, remember that you must write the full name of the file, including the format (For example .txt)
 
 "wordlist" = NO
+
 "wordlist.txt" = YES
 
 If the program still unable to detect the wordlist, verify that you are running the correct main.py in the correct path. 
