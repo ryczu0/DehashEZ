@@ -7,7 +7,7 @@ Password dehasher using Python.
 Support: https://discord.gg/HUgmXaPXSU
 
 
-# Hash
+# Hash 🔒
 
 This program accepts SHA256 and SHA512 hashes, with an optional salt.
 So, this includes, AuthMe hashes, DynamicBungeeAuth hashes, etc
@@ -18,7 +18,7 @@ When the program finds the original hash value, it will display it on the screen
 
 
 
-# Wordlist
+# Wordlist 📃
 You must put your wordlist file in the same directory as main.py
 
 ![image](https://github.com/user-attachments/assets/93f1779c-ca10-43cc-9f94-f95e2b1df013)
@@ -37,7 +37,7 @@ You can check this in the title of the program window.
 If you don't have a wordlist or you can't find any password with yours, join the Discord so we can give you a pretty good one.
 
 
-# Salt
+# Salt 🧂
 
 Salt is optional, if the hash you want to decrypt does not have a salt, do not fill in the "SALT" field in the program and simply press enter leaving it empty.
 The format of hashes with salt is usually $ALGORITHM$SALT$HASH, so if you want to extract the salt from a hash, you can do it with that format.
