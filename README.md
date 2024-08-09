@@ -32,7 +32,7 @@ So, this includes, AuthMe hashes, DynamicBungeeAuth hashes, etc.
 
 When the program finds the original hash value, it will display it on the screen and automatically copy it to your clipboard.
 
-![image](https://github.com/user-attachments/assets/6ca3734a-a46b-408f-870f-be70c86d665b)
+![image](https://github.com/user-attachments/assets/a49f0be6-b889-4135-a56b-2ab504bd1d4c)
 
 
 
