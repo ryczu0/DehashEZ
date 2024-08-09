@@ -2,7 +2,7 @@
 
 # DehashEZ
 
-Password dehasher using Python. (Part of zDehasher code but extremely optimized)
+Password dehasher using Python.
 
 Support: https://discord.gg/HUgmXaPXSU
 
@@ -61,4 +61,9 @@ Salt is optional, if the hash you want to decrypt does not have a salt, do not f
 The format of hashes with salt is usually $ALGORITHM$SALT$HASH, so if you want to extract the salt from a hash, you can do it with that format.
 
 
-Support: https://discord.gg/HUgmXaPXSU (Again) 
+# Additional information
+- Obviously you must have python installed on your system to be able to run this program [Download Python](https://www.python.org/downloads/)
+- Credits: Some parts of this code from zNotDev, LiptomAlex Zen-kun04 and Srdhash11
+- Support: https://discord.gg/HUgmXaPXSU (Again)
+- By ryzzu
+
