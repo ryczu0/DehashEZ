@@ -1,5 +1,9 @@
 #======================================================================================================
+
+
 #              Don't touch anything unless you know exactly what you're doing.
+
+
 #======================================================================================================
 
 import hashlib, time, os, shutil
@@ -104,8 +108,8 @@ def main():
                     print()
                     print(f"{Fore.LIGHTBLACK_EX}                                        Response time:", totalTime, "seconds.")
                     print()
-                    print(f"{Fore.LIGHTBLUE_EX}   (1) {Fore.RESET}Go back")
-                    print(f"{Fore.LIGHTBLUE_EX}   (2) {Fore.RESET}Leave")
+                    print(f"{Fore.LIGHTBLUE_EX}   (1) {Fore.RESET}Go back   {Fore.LIGHTBLUE_EX}   (2) {Fore.RESET}Leave")
+
                     print()
                     option = input(f"{Fore.LIGHTMAGENTA_EX} [»] {Fore.LIGHTBLUE_EX}Select an option: {Fore.RESET}")
                     if option == "1":
@@ -133,8 +137,7 @@ def main():
                     print(f"{Fore.LIGHTBLACK_EX}                                              Dehash in", totalTime, "seconds")
                     print()
                     print()
-                    print(f"{Fore.LIGHTBLUE_EX}   (1) {Fore.RESET}Go back")
-                    print(f"{Fore.LIGHTBLUE_EX}   (2) {Fore.RESET}Leave")
+                    print(f"{Fore.LIGHTBLUE_EX}   (1) {Fore.RESET}Go back   {Fore.LIGHTBLUE_EX}   (2) {Fore.RESET}Leave")
                     print()
                     option = input(f"{Fore.LIGHTMAGENTA_EX} [»] {Fore.LIGHTBLUE_EX}Select an option: {Fore.RESET}")
                     if option == "1":
@@ -156,4 +159,3 @@ def main():
 main()
 
 #========================================       The end       =========================================
-
