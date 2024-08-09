@@ -1,1 +1,3 @@
-joanender0101
+colorama
+
+(Run `pip install colorama` in cmd to install)
