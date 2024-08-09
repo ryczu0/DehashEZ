@@ -9,9 +9,12 @@ Support: https://discord.gg/HUgmXaPXSU
 # UPDATE
 Improvements: 
 
+**Timeout**
+- Dehashing timeout set to 120 seconds.
+
 **Optimization in the bruteforce function**
-- Dehashing time has been reduced by approximately 20-30 seconds.
-- The simplest passwords can be cracked in less than 1 second.
+- Dehashing time has been reduced by approximately 30-50 seconds.
+- The simplest passwords can be cracked in less than 1 second (Before, in 20).
   
 **Optimized wordlist upload**
 - Wordlist processing time was reduced by 2-3 seconds.
