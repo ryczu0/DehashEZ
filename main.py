@@ -7,29 +7,18 @@ import pyperclip as clipboard
 from colorama import Fore
 
 passwords = []
+timeout_duration = 120  # (Seconds)
 
 #======================================================================================================
 
 logo = """
-██████╗░███████╗██╗░░██╗░█████╗░░██████╗██╗░░██╗
-██╔══██╗██╔════╝██║░░██║██╔══██╗██╔════╝██║░░██║
-██║░░██║█████╗░░███████║███████║╚█████╗░███████║
-██║░░██║██╔══╝░░██╔══██║██╔══██║░╚═══██╗██╔══██║
-██████╔╝███████╗██║░░██║██║░░██║██████╔╝██║░░██║
-╚═════╝░╚══════╝╚═╝░░╚═╝╚═╝░░╚═╝╚═════╝░╚═╝░░╚═╝
+██████╗░███████╗██╗░░██╗░█████╗░░██████╗██╗░░██╗███████╗███████╗
+██╔══██╗██╔════╝██║░░██║██╔══██╗██╔════╝██║░░██║██╔════╝╚════██║
+██║░░██║█████╗░░███████║███████║╚█████╗░███████║█████╗░░░░███╔═╝
+██║░░██║██╔══╝░░██╔══██║██╔══██║░╚═══██╗██╔══██║██╔══╝░░██╔══╝░░
+██████╔╝███████╗██║░░██║██║░░██║██████╔╝██║░░██║███████╗███████╗
+╚═════╝░╚══════╝╚═╝░░╚═╝╚═╝░░╚═╝╚═════╝░╚═╝░░╚═╝╚══════╝╚══════╝
 """
-
-
-logo2 = """
-║███████╗███████╗
-║██╔════╝╚════██║
-║█████╗░░░░███╔═╝
-║██╔══╝░░██╔══╝░░
-║███████╗███████╗
-╚══════╝╚══════╝
-"""
-
-
 error = """
 ░█▀▀▀ ░█▀▀█ ░█▀▀█ ░█▀▀▀█ ░█▀▀█ 
 ░█▀▀▀ ░█▄▄▀ ░█▄▄▀ ░█──░█ ░█▄▄▀ 
@@ -46,21 +35,27 @@ def printcenter(text):
 #======================================================================================================
 
 def bruteforce(hash_str: str, salt: str = None):
+    start_time = time.time()
+    
     # SHA256
     if len(hash_str) == 64:
         for password in passwords:
+            if time.time() - start_time > timeout_duration:
+                return None
             if hashlib.sha256(password.encode()).hexdigest() == hash_str:
                 return password
-            if salt is not None and (hashlib.sha256(password.encode() + salt.encode()).hexdigest() == hash_str or hashlib.sha256(hashlib.sha256(password.encode()).hexdigest().encode() + salt.encode()).hexdigest() == hash_str):
+            if salt and (hashlib.sha256(password.encode() + salt.encode()).hexdigest() == hash_str or hashlib.sha256(hashlib.sha256(password.encode()).hexdigest().encode() + salt.encode()).hexdigest() == hash_str):
                 return password
     # SHA512
     elif len(hash_str) == 128:
         for password in passwords:
+            if time.time() - start_time > timeout_duration:
+                return None
             if hashlib.sha512(password.encode()).hexdigest() == hash_str:
                 return password
-            if salt is not None and (hashlib.sha512(password.encode() + salt.encode()).hexdigest() == hash_str or hashlib.sha512(hashlib.sha512(password.encode()).hexdigest().encode() + salt.encode()).hexdigest() == hash_str):
+            if salt and (hashlib.sha512(password.encode() + salt.encode()).hexdigest() == hash_str or hashlib.sha512(hashlib.sha512(password.encode()).hexdigest().encode() + salt.encode()).hexdigest() == hash_str):
                 return password
-    return hash_str
+    return None
 
 #======================================================================================================
 
@@ -74,8 +69,7 @@ def main():
         os.system("cls || clear")
         printcenter(f"{Fore.LIGHTBLUE_EX}{logo}")
         print()
-        printcenter(f"{Fore.RED}ERROR: {Fore.RESET}File not found / invalid format.")
-        printcenter(f"Read README.MD for help.")
+        printcenter(f"{Fore.RED}ERROR: {Fore.RESET}File not found / invalid format.\n\nRead README.MD for help")
         time.sleep(5)
         print()
         main()
@@ -83,13 +77,11 @@ def main():
         os.system("cls || clear")
         printcenter(f"{Fore.LIGHTBLUE_EX}{logo}")
         print()
-        printcenter(f"{Fore.RESET}Valid file.")
-        print()
-        printcenter(f"{Fore.BLUE}Processing wordlist...")
+        printcenter(f"{Fore.RESET}Valid file.\n\n{Fore.BLUE}   Processing wordlist...")
         print()
         with open(wordlist, 'r', encoding="latin-1") as f:
             passwords.extend([password.strip() for password in f])
-            printcenter(f"{Fore.LIGHTBLUE_EX}                    [LOG]{Fore.RESET} {Fore.LIGHTMAGENTA_EX}{len(passwords)}{Fore.RESET} passwords have been uploaded from {Fore.LIGHTMAGENTA_EX}{wordlist}")
+            print(f"{Fore.LIGHTBLUE_EX}                             [LOG]{Fore.RESET} {Fore.LIGHTMAGENTA_EX}{len(passwords)}{Fore.RESET} passwords have been uploaded from {Fore.LIGHTMAGENTA_EX}", wordlist, "", end="\r")
             print()
             print()
             while True:
@@ -104,16 +96,16 @@ def main():
                 endTime = time.time()
                 totalTime = round((endTime - startTime), 3)
 
-                if final == hash_str:
+                if final is None:
                     os.system("cls || clear")
                     printcenter(f"{Fore.LIGHTBLUE_EX}{logo}")
                     print()
-                    printcenter(f"{Fore.LIGHTBLUE_EX}[LOG]{Fore.RESET} It was not possible to decrypt the hash.")
+                    printcenter(f"{Fore.LIGHTBLUE_EX}[LOG]{Fore.RESET} It was not possible to decrypt the hash{Fore.LIGHTBLACK_EX} / timeout.")
                     print()
-                    printcenter(f"{Fore.LIGHTBLACK_EX}Response time: {totalTime} seconds.")
+                    print(f"{Fore.LIGHTBLACK_EX}                                        Response time:", totalTime, "seconds.")
                     print()
-                    print(f"{Fore.LIGHTBLUE_EX}(1) {Fore.RESET}Go back")
-                    print(f"{Fore.LIGHTBLUE_EX}(2) {Fore.RESET}Leave")
+                    print(f"{Fore.LIGHTBLUE_EX}   (1) {Fore.RESET}Go back")
+                    print(f"{Fore.LIGHTBLUE_EX}   (2) {Fore.RESET}Leave")
                     print()
                     option = input(f"{Fore.LIGHTMAGENTA_EX} [»] {Fore.LIGHTBLUE_EX}Select an option: {Fore.RESET}")
                     if option == "1":
@@ -133,16 +125,16 @@ def main():
                     os.system("cls || clear")
                     printcenter(f"{Fore.LIGHTBLUE_EX}{logo}")
                     print()
-                    printcenter(f"{Fore.LIGHTBLUE_EX}[LOG]{Fore.RESET} Hash successfully decrypted!\n\nResult → {Fore.LIGHTMAGENTA_EX}{final}")
+                    printcenter(f"{Fore.LIGHTBLUE_EX}[LOG]{Fore.RESET} Hash successfully decrypted!\n\nResult → {Fore.RED}{final}")
                     clipboard.copy(final)
                     print()
                     printcenter(f"{Fore.LIGHTBLACK_EX}Result copied to clipboard.")
                     print()
-                    printcenter(f"{Fore.LIGHTBLACK_EX}Dehash in {totalTime} seconds.")
+                    print(f"{Fore.LIGHTBLACK_EX}                                              Dehash in", totalTime, "seconds")
                     print()
                     print()
-                    print(f"{Fore.LIGHTBLUE_EX}(1) {Fore.RESET}Go back")
-                    print(f"{Fore.LIGHTBLUE_EX}(2) {Fore.RESET}Leave")
+                    print(f"{Fore.LIGHTBLUE_EX}   (1) {Fore.RESET}Go back")
+                    print(f"{Fore.LIGHTBLUE_EX}   (2) {Fore.RESET}Leave")
                     print()
                     option = input(f"{Fore.LIGHTMAGENTA_EX} [»] {Fore.LIGHTBLUE_EX}Select an option: {Fore.RESET}")
                     if option == "1":
@@ -164,3 +156,4 @@ def main():
 main()
 
 #========================================       The end       =========================================
+
