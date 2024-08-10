@@ -1,11 +1,3 @@
-#======================================================================================================
-
-
-#              Don't touch anything unless you know exactly what you're doing.
-
-
-#======================================================================================================
-
 import hashlib, time, os, shutil
 import pyperclip as clipboard
 from colorama import Fore
@@ -71,9 +63,9 @@ def main():
     wordlist = input(f"{Fore.LIGHTMAGENTA_EX} [»] {Fore.LIGHTBLUE_EX}Wordlist file name {Fore.LIGHTBLACK_EX}(Including format): {Fore.RESET}")
     if not os.path.isfile(wordlist):
         os.system("cls || clear")
-        printcenter(f"{Fore.LIGHTBLUE_EX}{logo}")
         print()
-        printcenter(f"{Fore.RED}ERROR: {Fore.RESET}File not found / invalid format.\n\nRead README.MD for help")
+        printcenter(f"{Fore.LIGHTMAGENTA_EX}{error}")
+        printcenter(f"{Fore.RESET}File not found / invalid format.\n\nRead README.MD for help")
         time.sleep(5)
         print()
         main()
@@ -108,7 +100,7 @@ def main():
                     print()
                     print(f"{Fore.LIGHTBLACK_EX}                                        Response time:", totalTime, "seconds.")
                     print()
-                    print(f"{Fore.LIGHTBLUE_EX}   (1) {Fore.RESET}Go back   {Fore.LIGHTBLUE_EX}   (2) {Fore.RESET}Leave")
+                    printcenter(f"{Fore.LIGHTBLUE_EX}   (1) {Fore.RESET}Go back   {Fore.LIGHTBLUE_EX}   (2) {Fore.RESET}Leave")
 
                     print()
                     option = input(f"{Fore.LIGHTMAGENTA_EX} [»] {Fore.LIGHTBLUE_EX}Select an option: {Fore.RESET}")
@@ -137,7 +129,7 @@ def main():
                     print(f"{Fore.LIGHTBLACK_EX}                                              Dehash in", totalTime, "seconds")
                     print()
                     print()
-                    print(f"{Fore.LIGHTBLUE_EX}   (1) {Fore.RESET}Go back   {Fore.LIGHTBLUE_EX}   (2) {Fore.RESET}Leave")
+                    printcenter(f"{Fore.LIGHTBLUE_EX}   (1) {Fore.RESET}Go back   {Fore.LIGHTBLUE_EX}   (2) {Fore.RESET}Leave")
                     print()
                     option = input(f"{Fore.LIGHTMAGENTA_EX} [»] {Fore.LIGHTBLUE_EX}Select an option: {Fore.RESET}")
                     if option == "1":
