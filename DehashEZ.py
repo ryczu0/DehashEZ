@@ -10,7 +10,7 @@ passwords = []
 
 default_wordlist = r'CHANGE THIS TO YOUR WORDLIST PATH. CHECK GITHUB README.MD'  #  Paste your wordlist path, including the wordlist name and format.
 
-timeout_duration = 35  # (Seconds)
+timeout_duration = 40  # (Seconds)
 
 #======================================================================================================
 
