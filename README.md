@@ -4,7 +4,7 @@
 
 Password dehasher using Python.
 
-Support: https://discord.gg/HUgmXaPXSU
+[Support Discord server](https://discord.gg/sn7JX2VQgT)
 
 # UPDATE - 27/08/2024
 Improvements: 
