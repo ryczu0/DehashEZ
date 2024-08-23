@@ -6,20 +6,26 @@ Password dehasher using Python.
 
 Support: https://discord.gg/HUgmXaPXSU
 
-# UPDATE
+# UPDATE - 27/08/2024
 Improvements: 
 
 **Timeout**
-- Dehashing timeout set to 120 seconds.
+- Dehashing timeout set to 40 seconds.
+- You can change this in the code (Line 13)
+
+**Default wordlist path**
+- You can add the path of a default wordlist, so you don't have to write it every time.
+- Paste your wordlist path in the code, line 11.
 
 **Optimization in the bruteforce function**
-- Dehashing time has been reduced by approximately 30-50 seconds.
+- Dehashing time has been reduced by approximately 40-80 seconds.
 - The simplest passwords can be cracked in less than 1 second (Before, in 20).
   
 **Optimized wordlist upload**
 - Wordlist processing time was reduced by 2-3 seconds.
 
 **Optimized interface**
+- New successful dehash screen.
 - Simplified error handling and menu options.
 - Total dehashing time is calculated more accurately and presented in a more readable manner.
 - The hash result is automatically copied to the clipboard.
