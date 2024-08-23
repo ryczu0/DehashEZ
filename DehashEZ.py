@@ -2,25 +2,40 @@ import hashlib, time, os, shutil
 import pyperclip as clipboard
 from colorama import Fore
 
+
+
 passwords = []
-timeout_duration = 120  # (Seconds)
+
+#===================================CHANGE THIS THINGS=================================================
+
+default_wordlist = r'CHANGE THIS TO YOUR WORDLIST PATH. CHECK GITHUB README.MD'  #  Paste your wordlist path, including the wordlist name and format.
+
+timeout_duration = 35  # (Seconds)
 
 #======================================================================================================
 
 logo = """
-██████╗░███████╗██╗░░██╗░█████╗░░██████╗██╗░░██╗███████╗███████╗
-██╔══██╗██╔════╝██║░░██║██╔══██╗██╔════╝██║░░██║██╔════╝╚════██║
-██║░░██║█████╗░░███████║███████║╚█████╗░███████║█████╗░░░░███╔═╝
-██║░░██║██╔══╝░░██╔══██║██╔══██║░╚═══██╗██╔══██║██╔══╝░░██╔══╝░░
-██████╔╝███████╗██║░░██║██║░░██║██████╔╝██║░░██║███████╗███████╗
-╚═════╝░╚══════╝╚═╝░░╚═╝╚═╝░░╚═╝╚═════╝░╚═╝░░╚═╝╚══════╝╚══════╝
+
+██████╗░███████╗██╗░░██╗░█████╗░░██████╗██╗░░██╗███████╗███████╗░░░░░░░
+██╔══██╗██╔════╝██║░░██║██╔══██╗██╔════╝██║░░██║██╔════╝╚════██║░░██╗░░
+██║░░██║█████╗░░███████║███████║╚█████╗░███████║█████╗░░░░███╔═╝██████╗
+██║░░██║██╔══╝░░██╔══██║██╔══██║░╚═══██╗██╔══██║██╔══╝░░██╔══╝░░╚═██╔═╝
+██████╔╝███████╗██║░░██║██║░░██║██████╔╝██║░░██║███████╗███████╗░░╚═╝░░
+╚═════╝░╚══════╝╚═╝░░╚═╝╚═╝░░╚═╝╚═════╝░╚═╝░░╚═╝╚══════╝╚══════╝░░░░░░░
+"""
+success = """
+░██████╗██╗░░░██╗░█████╗░░█████╗░███████╗░██████╗░██████╗██╗
+██╔════╝██║░░░██║██╔══██╗██╔══██╗██╔════╝██╔════╝██╔════╝██║
+╚█████╗░██║░░░██║██║░░╚═╝██║░░╚═╝█████╗░░╚█████╗░╚█████╗░██║
+░╚═══██╗██║░░░██║██║░░██╗██║░░██╗██╔══╝░░░╚═══██╗░╚═══██╗╚═╝
+██████╔╝╚██████╔╝╚█████╔╝╚█████╔╝███████╗██████╔╝██████╔╝██╗
+╚═════╝░░╚═════╝░░╚════╝░░╚════╝░╚══════╝╚═════╝░╚═════╝░╚═╝
 """
 error = """
 ░█▀▀▀ ░█▀▀█ ░█▀▀█ ░█▀▀▀█ ░█▀▀█ 
 ░█▀▀▀ ░█▄▄▀ ░█▄▄▀ ░█──░█ ░█▄▄▀ 
 ░█▄▄▄ ░█─░█ ░█─░█ ░█▄▄▄█ ░█─░█
 """
-
 #======================================================================================================
 
 def printcenter(text):
@@ -60,7 +75,15 @@ def main():
     print()
     printcenter(f"{Fore.LIGHTBLUE_EX}{logo}")
     print()
-    wordlist = input(f"{Fore.LIGHTMAGENTA_EX} [»] {Fore.LIGHTBLUE_EX}Wordlist file name {Fore.LIGHTBLACK_EX}(Including format): {Fore.RESET}")
+    printcenter(f"{Fore.LIGHTBLACK_EX}Default wordlist: {default_wordlist}")
+    print()
+    printcenter(f"{Fore.LIGHTBLUE_EX}   (1) {Fore.RESET}Default wordlist   {Fore.LIGHTBLUE_EX}   (2) {Fore.RESET}Select a wordlist")
+    print()
+    predwordlist = input(f"{Fore.LIGHTMAGENTA_EX} [»]{Fore.RESET} ")
+    if predwordlist == "1":
+        wordlist = default_wordlist
+    else:
+        wordlist = input(f"{Fore.LIGHTMAGENTA_EX} [»] {Fore.LIGHTBLUE_EX}Wordlist path / file name {Fore.LIGHTBLACK_EX}(Including format): {Fore.RESET}")
     if not os.path.isfile(wordlist):
         os.system("cls || clear")
         print()
@@ -73,11 +96,11 @@ def main():
         os.system("cls || clear")
         printcenter(f"{Fore.LIGHTBLUE_EX}{logo}")
         print()
-        printcenter(f"{Fore.RESET}Valid file.\n\n{Fore.BLUE}   Processing wordlist...")
+        printcenter(f"{Fore.RESET}Valid file.\n\n{Fore.LIGHTBLUE_EX}   Processing wordlist...")
         print()
         with open(wordlist, 'r', encoding="latin-1") as f:
             passwords.extend([password.strip() for password in f])
-            print(f"{Fore.LIGHTBLUE_EX}                             [LOG]{Fore.RESET} {Fore.LIGHTMAGENTA_EX}{len(passwords)}{Fore.RESET} passwords have been uploaded from {Fore.LIGHTMAGENTA_EX}", wordlist, "", end="\r")
+            printcenter(f"                 {Fore.LIGHTBLUE_EX}[LOG]{Fore.RESET} {Fore.LIGHTMAGENTA_EX}{len(passwords)}{Fore.RESET} passwords have been uploaded from {Fore.LIGHTMAGENTA_EX}{wordlist}")
             print()
             print()
             while True:
@@ -96,11 +119,11 @@ def main():
                     os.system("cls || clear")
                     printcenter(f"{Fore.LIGHTBLUE_EX}{logo}")
                     print()
-                    printcenter(f"{Fore.LIGHTBLUE_EX}[LOG]{Fore.RESET} It was not possible to decrypt the hash{Fore.LIGHTBLACK_EX} / timeout.")
+                    printcenter(f"{Fore.LIGHTBLUE_EX}[LOG]{Fore.RESET} It was not possible to decrypt the hash{Fore.LIGHTBLACK_EX} / invalid / timeout.")
                     print()
                     print(f"{Fore.LIGHTBLACK_EX}                                        Response time:", totalTime, "seconds.")
                     print()
-                    printcenter(f"{Fore.LIGHTBLUE_EX}   (1) {Fore.RESET}Go back   {Fore.LIGHTBLUE_EX}   (2) {Fore.RESET}Leave")
+                    printcenter(f"{Fore.LIGHTBLUE_EX}     (1) {Fore.RESET}Go back   {Fore.LIGHTBLUE_EX}   (2) {Fore.RESET}Leave")
 
                     print()
                     option = input(f"{Fore.LIGHTMAGENTA_EX} [»] {Fore.LIGHTBLUE_EX}Select an option: {Fore.RESET}")
@@ -119,7 +142,7 @@ def main():
                         main()
                 else:
                     os.system("cls || clear")
-                    printcenter(f"{Fore.LIGHTBLUE_EX}{logo}")
+                    printcenter(f"{Fore.LIGHTMAGENTA_EX}{success}")
                     print()
                     printcenter(f"{Fore.LIGHTBLUE_EX}[LOG]{Fore.RESET} Hash successfully decrypted!\n\nResult → {Fore.RED}{final}")
                     clipboard.copy(final)
