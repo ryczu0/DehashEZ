@@ -39,7 +39,8 @@ So, this includes, AuthMe hashes, DynamicBungeeAuth hashes, etc.
 
 When the program finds the original hash value, it will display it on the screen and automatically copy it to your clipboard.
 
-![image](https://github.com/user-attachments/assets/1b29e90d-7f82-493d-9cd3-34ff31fdf00e)
+![image](https://github.com/user-attachments/assets/3d803b83-1098-4305-b56d-1fdb6b89e31d)
+
 
 
 
@@ -69,6 +70,17 @@ If you don't have a wordlist or you can't find any password with yours, join the
 
 Salt is optional, if the hash you want to decrypt does not have a salt, do not fill in the "SALT" field in the program and simply press enter leaving it empty.
 The format of hashes with salt is usually $ALGORITHM$SALT$HASH, so if you want to extract the salt from a hash, you can do it with that format.
+
+# Images 📷
+![image](https://github.com/user-attachments/assets/364d2b12-27aa-45d9-83e5-96721033321e)
+
+![image](https://github.com/user-attachments/assets/fbed0822-ae6d-4e69-b338-fb895c01d969)
+
+![image](https://github.com/user-attachments/assets/c09a298a-33c9-4a21-8b52-bf0a80b3ffd8)
+
+
+
+
 
 
 # Additional information
