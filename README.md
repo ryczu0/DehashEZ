@@ -8,8 +8,13 @@ Password dehasher using Python.
 
 [Support Discord server](https://discord.gg/sn7JX2VQgT)
 
-# UPDATE - 27/08/2024
+# UPDATE - 29/08/2024
 Improvements: 
+
+**Aesthetic**
+- New logo
+- New interface
+- New colors
 
 **Timeout**
 - Dehashing timeout set to 40 seconds.
