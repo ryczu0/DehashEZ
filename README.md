@@ -1,4 +1,5 @@
-![image](https://github.com/user-attachments/assets/445aa3b4-decc-4003-a023-4db7dfd36fe8)
+![image](https://github.com/user-attachments/assets/7ed820c9-580a-40a4-b84c-f2b92a0fc9df)
+
 
 # DehashEZ
 
