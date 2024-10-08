@@ -17,16 +17,16 @@ Improvements:
 - New colors
 
 **Timeout**
-- Dehashing timeout set to 40 seconds.
-- You can change this in the code (Line 13)
+- Default dehashing timeout set to 95 seconds.
+- You can change this in the code (Line 14)
 
 **Default wordlist path**
 - You can add the path of a default wordlist, so you don't have to write it every time.
-- Paste your wordlist path in the code, line 11.
+- Paste your wordlist path in the code, line 12.
 
 **Optimization in the bruteforce function**
 - Dehashing time has been reduced by approximately 40-80 seconds.
-- The simplest passwords can be cracked in less than 1 second (Before, in 20).
+- The simplest passwords can be cracked in less than 1 second (Before, in 21).
   
 **Optimized wordlist upload**
 - Wordlist processing time was reduced by 2-3 seconds.
